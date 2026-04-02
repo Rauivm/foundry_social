@@ -1,0 +1,17 @@
+<h2 class="mb-4 text-2xl font-bold">Sign up</h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-4" }) do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "mt-1 w-full rounded border p-2" %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "mt-1 w-full rounded border p-2" %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "mt-1 w-full rounded border p-2" %>
+  </div>
+  <%= f.submit "Sign up", class: "rounded bg-slate-900 px-4 py-2 text-white" %>
+<% end %>
+<%= render "devise/shared/links" %>

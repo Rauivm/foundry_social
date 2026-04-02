@@ -1,0 +1,8 @@
+<div class="mt-4 flex gap-4 text-sm">
+  <% if controller_name != 'sessions' %>
+    <%= link_to "Log in", new_session_path(resource_name), class: "underline" %>
+  <% end %>
+  <% if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <%= link_to "Sign up", new_registration_path(resource_name), class: "underline" %>
+  <% end %>
+</div>

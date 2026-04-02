@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.3
+          bundler-cache: true
+      - run: bin/rails db:prepare
+      - run: bundle exec rspec
+      - run: bundle exec rubocop
+      - run: bundle exec brakeman -q -w2
+      - run: bundle exec bundle-audit check --update
